@@ -778,9 +778,9 @@
 						    height: 45px;
 						    background-size: cover;
 						    position: absolute;
-						    top: 17%;
+						    top: 36%;
 						    left: 50%;
-						    animation: myOrbit 3s infinite;
+						    animation: myOrbit 4s infinite;
 					    }
 					    .img_pot{
 					    	width: 56px;
@@ -1929,6 +1929,7 @@
 				    	width: 100%;
 					    height: 100%;
 					    background-size: cover;
+					    animation: rotate 3s ease-in-out infinite alternate;
 				    }
 				    .icon{
 				    	position: absolute;
@@ -1959,6 +1960,8 @@
 		p{
 			padding-top: 140px;
 			font-weight: 400;
+			width: 80%;
+			margin: 0 auto;
 		}
 		.sign{
 			padding-top: 0;
@@ -2065,3 +2068,120 @@
 			}
 		}
 	}
+//tabs
+  		/*----- Tabs -----*/
+		.tabs {
+			width:70%;
+			// display:inline-block;
+			// height: 250px;
+			margin-top: 50px;
+			padding-bottom: 50px;
+			@include respond-to($phone){
+				width: 100%;
+				margin-top: 50px;
+			}
+			ul{
+				padding: 0;
+				margin-bottom: 0;
+			}
+		}
+		/*----- Tab Links -----*/
+		/* Clearfix */
+		.tab-links:after {
+			display:block;
+			clear:both;
+			content:'';
+		}
+		.tab-links.md{
+			display: block;
+			@include respond-to($phone){
+				display: none;
+			}
+		}
+		.tab-links.multiple-items{
+			display: block!important;
+			@media screen and (min-width:767px){
+				display: none!important;
+			}
+		}
+		.multiple-items.tab-links{
+			.slick-dots{
+				display: none!important;
+			}
+			.slick-prev:before, .slick-next:before{
+				font-weight: 900;
+				color:  #dde2e8;
+			}
+			.slick-prev:before {
+			    content: '\f053';
+			    font-family: 'Font Awesome 5 Free';
+			}
+			margin-top: 50px;
+			div{
+				// display:inline-block;
+				color: #5b718e;
+			    letter-spacing: 0.1em;
+			    text-decoration: none;
+			    -webkit-transition: all 0.5s;
+			    font-family: $work;
+			    font-weight: 400;
+			    text-transform: uppercase;
+			    text-align: center;
+			}
+		}
+		.tab-text {
+		    height: 200px;
+		}
+		.tab-links li {
+			// margin:0px 5px;
+			float:left;
+			list-style:none;
+		}
+		.tab-links a {
+			padding:9px 15px;
+			display:inline-block;
+			background:transparent;
+			font-weight:600;
+			color:#4c4c4c;
+			transition:all linear 0.3s;
+			color: #dde2e8;
+			text-transform: uppercase;
+		    font-family: "work", sans-serif;
+		    font-size: 0.8em;
+		    @include respond-to($phone){
+		    	font-size: 0.7em;
+		    	padding: 0;
+		    }
+		}
+		.tab-links a:hover {
+			text-decoration:underline;
+			color: #dde2e8;
+		}
+		li.active a, li.active a:hover {
+			background:transparent;
+			border-right: 0.14em solid #bdc3c7;
+    		border-left: 0.14em solid #bdc3c7;
+    		border-top: 3px solid #19b5bc;
+    		margin-bottom: -2px;
+    		background: #5b718e;
+		}
+		/*----- Content of Tabs -----*/
+		.tab-content {
+			padding:15px;
+			box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+			background:transparent;
+			border: 0.14em solid #bdc3c7;
+			color: #dde2e8;
+			transition: all 0.35s;
+		    text-transform: uppercase;
+		    font-family: "work", sans-serif;
+		    font-size: 0.87em;
+		    line-height: 17px;
+		    // height: 100%;
+		}
+		.tab {
+			display:none;
+		}
+		.tab.active {
+			display:block;
+		}

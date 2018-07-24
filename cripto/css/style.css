@@ -123,9 +123,9 @@
     opacity: 0.7; } }
 @-webkit-keyframes myOrbit {
   0% {
-    transform: rotateZ(0deg) translateX(2px) rotate(0deg); }
+    transform: rotateZ(0deg) translateX(1px) rotate(0deg); }
   100% {
-    transform: rotateZ(360deg) translateX(2px) rotate(-360deg); } }
+    transform: rotateZ(360deg) translateX(1px) rotate(-360deg); } }
 @-webkit-keyframes rotate {
   100% {
     -webkit-transform: rotateZ(360deg);
@@ -800,9 +800,9 @@ h5 {
             height: 45px;
             background-size: cover;
             position: absolute;
-            top: 17%;
+            top: 36%;
             left: 50%;
-            animation: myOrbit 3s infinite; }
+            animation: myOrbit 4s infinite; }
           .top_block .offers .block_wrap .sub_wrap .img_frame .img_pot {
             width: 56px;
             height: 70px;
@@ -1772,7 +1772,8 @@ footer {
         .object .block_wrap .sub_wrap .img_frame .ellipse {
           width: 100%;
           height: 100%;
-          background-size: cover; }
+          background-size: cover;
+          animation: rotate 3s ease-in-out infinite alternate; }
         .object .block_wrap .sub_wrap .img_frame .icon {
           position: absolute;
           top: 0;
@@ -1795,7 +1796,9 @@ footer {
     top: 80px; }
   .text_area p {
     padding-top: 140px;
-    font-weight: 400; }
+    font-weight: 400;
+    width: 80%;
+    margin: 0 auto; }
   .text_area .sign {
     padding-top: 0;
     text-align: right;
