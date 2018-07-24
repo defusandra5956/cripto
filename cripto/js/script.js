@@ -202,6 +202,86 @@ $(".sub_header .link").on("click", function(){
 //     cursorcolor:"#dde2e8",
 //     cursorborder:"#dde2e8"
 // }); 
+$(function() {
+
+  // Set up pie chart and add data.
+  var config = {
+    type: 'pie',
+    options: {
+      legend: {
+        display: false
+      },
+      cutoutPercentage: 0.1,
+      animation: {
+        animateScale: true
+      }
+    },
+    data: {
+      labels: ['BTC', 'ETH', 'XRP', 'BCH', 'EOS', 'LTC', 'XLM','TRX', 'NEO',
+       'XMR', 'DASH', 'XEM', 'VEN', 'ETC', 'QTUM', 'OMG', 'ICX', 'LSK',
+        'ZEC', 'ONT'],
+      machineLabels: ['Bitcoin', 'Etherium', 'Ripple', 'Bitcoin Cash', 'EOS', 'Litecoin', 'Stellar',
+      'Tron', 'Neo', 'Monero', 'Dash', 'NEM', 'VeChain', 'Etherum Classic', 'Qtum',
+       'OmiseGo', 'Icon', 'Lisk', 'Zcash', 'Ontology'],
+      sectors:['Store of Value', 'Platform', 'Value Transfer', 'Value Transfer', 'Platform', 
+      'Value Transfer', 'Value Transfer', 'Entertaiment Platform',
+      'Platform', 'Anonymity', 'Anonymity', 'Platform', 'App Development',
+      'Platform', 'Platform', 'Payments', 'Platform', 'Platform', 'Anonymity', 'Anonymity'],
+      datasets: [{
+        borderWidth: 0,
+        backgroundColor: [
+          '#DAFFF8',
+          '#BCF7EB',
+          '#A6F3E4',
+          '#96EFDE',
+          '#89EAD7',
+          '#83E2CF',
+          '#6EDBC6',
+          '#62D0BA',
+          '#53C7B0',
+          '#21C4A4',
+          '#1ABC9C',
+          '#14B696',
+          '#0EAB8C',
+          '#11A185',
+          '#12967C',
+          '#138D75',
+          '#11816B',
+          '#117561',
+          '#0F6151',
+          '#0D4B3E'
+        ],
+        data: [44.7, 19.3, 8.7, 6.1, 3.4, 2.4, 1.9, 1.3, 1.3, 1.0, 
+        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      }]
+    }
+  };
+
+  // Instantiate the pie chart in the canvas element.
+  var myPie = new Chart(document.getElementById('progress-chart'), config);
+  
+  // Register click event to log the clicked label (machine name).
+  document.getElementById('progress-chart').onclick = function(evt) {
+    var activePoints = myPie.getElementAtEvent(evt);
+    var firstPoint = activePoints[0];
+    if (firstPoint !== undefined) {
+      var clickedItem = config.data.machineLabels[firstPoint._index];
+      var clickedLabel = config.data.labels[firstPoint._index];
+      var clickedSector = config.data.sectors[firstPoint._index];
+      var clickedData = config.data.datasets["0"].data[firstPoint._index];
+      $('#asset').text(clickedItem);
+      $('#symbol').text(clickedLabel);
+      $('#set').text(clickedData);
+      $('#sector').text(clickedSector);
+    }
+  };
+  
+  // Add the legend in custom area to allow CSS theming.
+  document.getElementById('chart-legend').innerHTML = myPie.generateLegend();
+  
+});
+
+
 
 });
 

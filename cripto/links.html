@@ -237,15 +237,28 @@
             <section class="top_coin">
               <div class="container">
                   <div class="text_wrap">
-                       <h3>Crescent Portfolio Holdings</h3>
+                       <h3>Crescent Portfolio<br> Holdings</h3>
                        <p>Crescent Crypto index funds provide secure, complexity-free access to the fastest growing asset class in the world.<br>
                        <br>Our suite of passive investment vehicles capture the returns of most exciting sectors in cryptocurrency universe and are on path to become some of the first exchange listed products.</p>
                    </div>
                    <div class="chart_wrap">
-                       <img src="img/page_2/chart.png">
+                       <!-- <img src="img/page_2/chart.png"> -->
+                       <div class="chart-content">
+                          <canvas id="progress-chart"></canvas>
+                          <div id="chart-legend" class="chart-legend"></div>
+                          <div class="info_chart">
+                            <ul>
+                              <li id="asset">Bitcoin</li>
+                              <li id="symbol">BTC</li>
+                              <li id="sector">Store of Value</li>
+                              <li id="set">44.7</li>
+                            </ul>
+                          </div>
+                      </div>
                    </div>
                 </div>
                <div class="container table">
+                <h3>Portfolio holdings<br>(as of March 1st)</h3>
                   <table class="diagram_table">
                      <tr class="numbers">
                       <th>Symbol</th>
@@ -354,8 +367,8 @@
                      </tr>
                   </table>
                </div>
-               <p class="title">Crescent 20 index</p>
-               <div class="container">
+               <h5>Crescent 20 index</h5>
+               <div class="container diagram">
                 <div class="diagram_wrap">
                   <div class="perfomance">
                     <!-- <h3>Comulative investment performance</h3> -->
@@ -442,13 +455,45 @@
                 </div>
               </div>
             </section>
+            <!-- terms -->
+            <section class="terms">
+              <div class="container">
+                <h5>Investment terms</h5>
+                <div class="multiple-items terms">
+                  <div class="block_wrap">
+                    <span><i class="fas fa-percent"></i></span>
+                    <p>1% management fee and 10% performance allocation</p>
+                  </div>
+                  <div class="block_wrap">
+                    <span><i class="fas fa-dollar-sign"></i></span>
+                    <p>$100,000 minimum investment</p>
+                  </div>
+                  <div class="block_wrap">
+                    <span><i class="fas fa-lock"></i></span>
+                    <p>Quarterly liquidity after 6 month initial lock up</p>
+                  </div>
+                  <div class="block_wrap">
+                    <span><i class="fas fa-gavel"></i></span>
+                    <p>Accredited investors only</p>
+                  </div>
+                  <div class="block_wrap">
+                    <span><i class="fas fa-users"></i></span>
+                    <p>Legal Team: Cole -Frieman & Mallon LLP</p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
           <div id="tab2" class="tab">
+          <!--   <h3 style="text-align: center;padding-top: 80px;">Coming soon!</h3> -->
+            <img src="img/coming_soon.png" alt="" style="width: 50%;  margin-left: 25%;margin-top: 50px;">
           </div>
           <div id="tab3" class="tab">
+            <img src="img/coming_soon.png" alt="" style="width: 50%;  margin-left: 25%;margin-top: 50px;">
           </div>
           <div id="tab4" class="tab exchange_link">
-            <section class="chart_wrap">
+            <img src="img/coming_soon.png" alt="" style="width: 50%;  margin-left: 25%;margin-top: 50px;">
+            <!-- <section class="chart_wrap">
               <div class="container">
               <p class="title">Crescent 20 index</p>
                 <div class="diagram_wrap">
@@ -596,38 +641,10 @@
                     </div>
                   </div>
               </div>
-            </section>
+            </section> -->
           </div>
         </div>
       </div>
-  </section>
-  <!-- terms -->
-  <section class="terms">
-    <div class="container">
-      <h3>Investment terms</h3>
-      <div class="multiple-items terms">
-        <div class="block_wrap">
-          <span><i class="fas fa-percent"></i></span>
-          <p>1% management fee and 10% performance allocation</p>
-        </div>
-        <div class="block_wrap">
-          <span><i class="fas fa-dollar-sign"></i></span>
-          <p>$100,000 minimum investment</p>
-        </div>
-        <div class="block_wrap">
-          <span><i class="fas fa-lock"></i></span>
-          <p>Quarterly liquidity after 6 month initial lock up</p>
-        </div>
-        <div class="block_wrap">
-          <span><i class="fas fa-gavel"></i></span>
-          <p>Accredited investors only</p>
-        </div>
-        <div class="block_wrap">
-          <span><i class="fas fa-users"></i></span>
-          <p>Legal Team: Cole -Frieman & Mallon LLP</p>
-        </div>
-      </div>
-    </div>
   </section>
   <!-- form -->
     <section class="contact_form blue" id="contacts">
@@ -856,6 +873,7 @@
 <!-- scripts -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="css/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
     <!-- <script src="js/nicescroll.min.js"></script> -->

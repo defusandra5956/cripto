@@ -4,12 +4,13 @@
 	body{
 		font-size: 14px;
 	}
-	p {
+	p,span {
 	    font-family: "Work Sans", sans-serif;
 	    font-size: 1em;
 	    line-height: 18px;
 	    color: rgb(66, 66, 66);
 	    font-weight: 400;
+	    text-transform: initial;
 	}
 	i {
 	    color: rgb(27, 188, 157);
@@ -33,7 +34,8 @@
 	    font-size: 1.78em;
 	    line-height: 31px;
 	    color: rgb(0, 23, 56);
-	    font-weight: 300;
+	    font-weight: 400;
+	    text-transform: initial;
 	}
 	h5 {
 	    font-family: "Work Sans", sans-serif;
@@ -41,6 +43,7 @@
 	    line-height: 25px;
 	    color: rgb(66, 66, 66);
 	    font-weight: 400;
+	    text-transform: uppercase;
 	}
 	.start-btn {
 	    cursor: pointer;
@@ -175,7 +178,58 @@
 	    	input[type="submit"]{
 	    		color: rgb(255, 255, 255);
 			    font-family: "Work Sans", sans-serif;
-			    text-transform: uppercase;
+			    height: 42px;
+			    font-weight: 600;
+			    font-size: 15px;
+			    position: absolute;
+			    width: 180px;
+			    top: 0px;
+			    right: 0px;
+			    text-align: center;
+			    padding-left: 0px !important;
+			    background: rgb(27, 188, 157);
+			    transition: all 0.3s ease;
+			    border-radius: 50px;
+			    @include respond-to($phone){
+			    	position: unset;
+			    	width: 100%;
+			    }
+			    &:hover{
+			    	background-color: rgb(123, 218, 200);
+	    			cursor: pointer;
+			    }
+	    	}
+	    }
+	}
+	.contact_form.blue{
+		width: 100%;
+	    height: 170px;
+	    padding-bottom: 20px;
+	    padding-top: 100px;
+	    background: #001738;
+	    form{
+	    	position: relative;
+	    	input{
+	    		height: 40px;
+			    background-color: #020C1A;
+			    font-family: "Work Sans", sans-serif;
+			    font-size: 16px;
+			    margin-bottom: 10px;
+			    text-transform: none;
+			    color: rgb(145, 166, 191);
+			    width: calc(100% - 20px);
+			    text-align: left;
+			    padding-left: 20px;
+			    border-width: initial;
+			    border-style: none;
+			    border-color: initial;
+			    border-image: initial;
+			    border-radius: 50px;
+			    outline: none;
+	    	}
+	    	input[type="submit"]{
+	    		color: rgb(255, 255, 255);
+			    font-family: "Work Sans", sans-serif;
 			    height: 42px;
 			    font-weight: 600;
 			    font-size: 15px;
@@ -2069,119 +2123,568 @@
 		}
 	}
 //tabs
-  		/*----- Tabs -----*/
-		.tabs {
-			width:70%;
-			// display:inline-block;
-			// height: 250px;
+	.tabs {
+		width:100%;
+		// display:inline-block;
+		// height: 250px;
+		margin-top: 50px;
+		padding-bottom: 50px;
+		@include respond-to($phone){
+			width: 100%;
 			margin-top: 50px;
-			padding-bottom: 50px;
-			@include respond-to($phone){
-				width: 100%;
-				margin-top: 50px;
-			}
-			ul{
-				padding: 0;
-				margin-bottom: 0;
+		}
+		ul{
+			padding: 0;
+			margin-bottom: 0;
+		}
+	}
+	.tab-links:after {
+		display:block;
+		clear:both;
+		content:'';
+	}
+	.tab-links.screen{
+		display: flex;
+		background: #fff;
+		top: 70px;
+	    width: 100%;
+	    position: fixed;
+	    margin-top: 0;
+	    justify-content: center; 
+	    align-items: center;
+	    height: 50px;
+	    box-shadow: $shadow;
+	    z-index: 999;
+		@include respond-to($phone){
+			display: none;
+		}
+	}
+	.tab-text {
+	    height: 200px;
+	}
+	.tab-links li {
+		// float:left;
+		list-style:none;
+		position: relative;
+		padding: 0 10px;
+	}
+	.tab-links a {
+		// padding:9px 15px;
+		display:inline-block;
+		background:transparent;
+		font-weight:600;
+		transition: all linear 0.3s;
+		color: #001738;
+	    font-family: $work;
+	    font-size: 1em;
+	}
+	.tab-links a:hover {
+		color: $aqua;
+	}
+	.tab-links.screen li:after {
+	  content: '';
+	  position: absolute;
+	  left: 0;
+	  top: 9px;
+	  display: inline-block;
+	  height: 1em;
+	  width: 100%;
+	  border-bottom: 2px solid $aqua;
+	  margin-top: 10px;
+	  opacity: 0;
+		-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+		transition: opacity 0.35s, transform 0.35s;
+		-webkit-transform: scale(0,1);
+		transform: scale(0,1);
+	}
+	.tab-links.screen li:hover:after {
+	  opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	.tab-content {
+		background:transparent;
+		transition: all 0.35s;
+	    text-transform: uppercase;
+	    font-family: "work", sans-serif;
+	    font-size: 0.87em;
+	    line-height: 17px;
+	    // height: 100%;
+	}
+	.tab {
+		display:none;
+	}
+	.tab.active {
+		display:block;
+	}
+	.current_link.links{
+		display: none;
+		 @include respond-to($phone){
+		 	display: flex;
+		 	z-index: 90;
+		 	top: 50px;
+		    width: 100%;
+		    height: 50px;
+		    position: fixed;
+		    margin-top: 0;
+		    justify-content: center; 
+		    align-items: center;
+		    box-shadow: $shadow;
+		    color: #1ABC9C;
+		    cursor: pointer;
+		    background: #fff;
+		    span{
+		    	font-weight: 600;
+		    	font-family: $work;
+		    	font-size: 1.2em;
+		    	line-height: 23px;
+		    	position: relative;
+		    	color: $aqua;
+		    	&:after{
+		    		content: "\f0dd";
+		    		display: inline;
+		    		color: #1ABC9C;
+		    		font-size: 1.2em;
+		    		font-family: Font Awesome\ 5 Free;
+		    		font-weight: 900;
+		    		position: absolute;
+		    		top: -4px;
+    				right: -20px;
+		    	}
+		    }
+		 }
+	}
+	.tab-links.mobile{
+		display: none;
+		 @include respond-to($phone){
+		 	display: none;
+		 	top: 100px;
+		    width: 100%;
+		    position: fixed;
+		    margin-top: 0;
+		    justify-content: center; 
+		    align-items: center;
+		 }
+	}
+	.tab-links.mobile.open{
+		display: block;
+		width: 100%;
+		background: #fff;
+    	text-align: center;
+    	li{
+    		height: 50px;
+    		display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    a{
+		    	display: flex;
+		    	width: 100%;
+		    	height: 100%;
+			    justify-content: center;
+			    align-items: center;
+		    }
+    	}
+	}
+	.dynamic_wrap{
+		margin-top: 120px;
+	}
+//tab1 crescent 20
+	.top_coin{
+		padding-top: 50px;
+		.container.table{
+			h3{
+				display: none;
+				@include respond-to($phone){
+					display: block;
+				}
 			}
 		}
-		/*----- Tab Links -----*/
-		/* Clearfix */
-		.tab-links:after {
-			display:block;
-			clear:both;
-			content:'';
-		}
-		.tab-links.md{
-			display: block;
+		.container{
+			margin-bottom: 50px;
+			display: flex;
 			@include respond-to($phone){
+				display: block;
+			}
+			.text_wrap{
+				width: 35%;
+    			margin-right: 5%;
+    			@include respond-to($phone){
+					width: 100%;
+				}
+				p{
+					width: 90%;
+				}
+			}
+			.chart_wrap{
+				width: 60%;
+				.chart-content {
+				  padding: 5px;
+				  margin: 20px auto;
+				  canvas{
+				    width: 100%!important;
+				    height: 50%!important;
+				    cursor: pointer;
+				  }
+				  .chart-legend{
+				    width: 100%;
+				  }
+				}
+				.chart-legend{
+				  font-size: 0.8em;
+				  ul{
+				  	column-count: 5;
+				  	margin: 0;
+				  	margin-top: 50px;
+				  }
+				  li {
+				    list-style: none;
+				    margin: 0!important;
+				    font-family: $work;
+				    line-height: 18px;
+				    span {
+				      display: inline-block;
+				      width: 8px;
+				      height: 8px;
+				      margin-right: 5px;
+				    }
+				  }
+				}
+				@include respond-to($phone){
+					width: 100%;
+				}
+				img{
+					width: 100%;
+				}
+				.info_chart{
+					margin-top: 30px;
+					ul{
+						border: 2px solid #1ABC9C;
+						border-radius: 25px;
+						display: flex;
+						width: 100%;
+						padding: 5px;
+						li{
+							list-style-type: none;
+							width: 25%;
+							text-align: left;
+							&:first-child{
+								margin-left: 10px;
+							}
+							&:last-child{
+								text-align: right;
+								margin-right: 10px;
+							}
+						}
+					}
+				}
+			}
+			.diagram_table{
+				@include respond-to($phone){
+					display: flex;
+				    justify-content: center;
+				    align-items: center;
+				    margin-top: 50px;
+				    margin-bottom: 50px;
+				    font-family: $work;
+				    font-weight: 400;
+				    font-size: 1em;
+				    line-height: 18px;
+				    text-transform: initial;
+				    th{
+				    	width: 20%;
+				    	&:first-child{
+				    		width: 10%;
+				    	}
+				    	&:last-child{
+				    		width: 10%;
+				    	}
+				    }
+				    tr{
+				    	border-bottom:1px solid #CCCCCC;
+				    	&:last-child{
+				    		border-bottom:1px solid $aqua;
+				    	}
+				    }
+				    td{
+				    	padding-left: 10px;
+				    	&:first-child{
+				    		background: #F2F2F2;
+				    	}
+				    	&:last-child{
+				    		background: #F2F2F2;
+				    		text-align: right;
+				    		padding-right: 10px;
+				    	}
+				    }
+				    .numbers{
+				    	color: $aqua;
+				    	font-weight: 600;
+				    	border-top: 1px solid $aqua;
+				    	height: 30px;
+				    	th{
+				    		&:first-child{
+				    		background: #F2F2F2;
+					    	}
+					    	&:last-child{
+					    		background: #F2F2F2;
+					    	}
+				    	}
+				    }
+				}
+				width: 80%;
+				margin: 0 auto;
 				display: none;
 			}
 		}
-		.tab-links.multiple-items{
-			display: block!important;
-			@media screen and (min-width:767px){
-				display: none!important;
+		h5{
+			
+			font-weight: 600;
+			text-align: center;
+		}
+		.container.diagram{
+			display: block;
+			@include respond-to($phone){
+				width: 100%;
+			}
+			h3{
+				@include respond-to($phone){
+					padding: 0 10px;
+				}
 			}
 		}
-		.multiple-items.tab-links{
+		.diagram_wrap{
+			display: flex;
+			@include respond-to($phone){
+				display: block;
+			}
+			.perfomance{
+				width: 50%;
+				@include respond-to($phone){
+					width: 100%;
+				}
+			}
+			.analysis{
+				width: 50%;
+				@include respond-to($phone){
+					width: 100%;
+				}
+				.portfolio{
+					h3{
+						text-transform: initial;
+					}
+					table{
+						display: flex;
+					    justify-content: start;
+					    align-items: center;
+					    margin-top: 50px;
+					    margin-bottom: 50px;
+					    font-family: $work;
+					    font-weight: 400;
+					    font-size: 1em;
+					    line-height: 18px;
+					    text-transform: initial;
+					    @include respond-to($phone){
+							-webkit-justify-content: center;
+							        justify-content: center;
+						}
+					    tr{
+					    	border-bottom:1px solid #CCCCCC;
+					    	height: 45px;
+					    	&:last-child{
+					    		border-bottom:1px solid $aqua;
+					    	}
+					    }
+					    td{
+					    	padding-left: 10px;
+					    	&:first-child{
+					    	}
+					    	&:last-child{
+					    		text-align: right;
+					    		padding-right: 10px;
+					    	}
+					    }
+					    .numbers{
+					    	color: $aqua;
+					    	font-weight: 600;
+					    	border-top: 1px solid $aqua;
+					    	height: 30px;
+					    }
+					    .title{
+					    	color: $aqua;
+					    	font-weight: 600;
+					    }
+					}
+				}
+				.managers{
+					ul{
+						padding-left: 40px;
+						li{
+							height: 30px;
+							list-style-type: none;
+							span{
+								text-transform: initial;
+								color: #424242;
+								position: relative;
+								&:before{
+									content: '\f111';
+									font-weight: 900;
+									font-size: 0.7em;
+									color: $aqua;
+									font-family: Font Awesome\ 5 Free;
+									position: absolute;
+									left: -15px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.strategy{
+		position: relative;
+		.rectangle{
+			width: 100%;
+			position: absolute;
+			left: 0;
+			z-index: -1;
+		}
+		.strategy_blocks{
+	    	display: flex;
+	    	margin-top: 60px;
+	    	flex-flow: wrap;
+	    	@include respond-to($phone){
+				display: block;
+			}
+	    	.block_wrap{
+	    		width: calc(50% - 60px);
+			    height: 370px;
+			    display: flex;
+			    flex-direction: column;
+			    justify-content: center;
+			    align-items: center;
+			    padding: 20px;
+			    margin: 10px;
+			    background: rgb(255, 255, 255);
+			    box-shadow: $shadow;
+			    @include respond-to($phone){
+					width: 80%;	
+					margin: 20px auto;
+				}
+			    p{
+			    	font-size: 1em;
+				    line-height: 18px;
+				    font-weight: 400;
+				    text-align: center;
+				    text-transform: initial;
+				    @include respond-to($phone){
+				    	height: auto;
+				    }
+			    }
+			    .title{
+			    	text-transform: uppercase;
+				    font-size: 1em;
+				    line-height: 18px;
+				    font-weight: 600;
+			    }
+			    a{
+			    	text-transform: uppercase;
+				    font-size: 1em;
+				    line-height: 18px;
+				    font-weight: 400;
+				    color: rgb(27, 188, 157);
+				    cursor: pointer;
+				    text-decoration: none;
+				    outline: none;
+				    transition: all 0.3s ease;
+				    &:hover{
+				    	text-decoration: underline;
+				    }
+			    }
+			    .img_frame{
+			    	position: relative;
+				    width: 146px;
+				    height: 146px;
+				    .back{
+				    	width: 100%;
+					    height: 100%;
+					    background-size: cover;
+					    animation: rotate 3s ease-in-out infinite alternate;
+				    }
+				    .icon{
+				    	position: absolute;
+				    	top: 10px;
+					    left: calc(50% - 64px);
+					    width: 120px;
+					    height: 120px;
+				    }
+			    }
+	    	}
+	    	.main_block {
+				background: transparent;
+				box-shadow: none;
+				display: block;
+				p{
+					text-align: left;
+					width: 80%;
+					font-weight: 400;
+					line-height: 18px;
+				}
+			}
+	    }
+	}
+//terms slider
+	.terms{
+		h5{
+			font-weight: 600;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		.multiple-items{
+			.slick-prev:before{
+				content: '\f053';
+   				font-family: 'Font Awesome 5 Free';
+			}
+			.slick-next, .slick-prev{
+				@include respond-to($phone){
+					display: none!important;
+				}
+			}
+			.slick-next:before, .slick-prev:before{
+				font-weight: 900;
+				color: $aqua;
+			}
 			.slick-dots{
 				display: none!important;
 			}
-			.slick-prev:before, .slick-next:before{
-				font-weight: 900;
-				color:  #dde2e8;
-			}
-			.slick-prev:before {
-			    content: '\f053';
-			    font-family: 'Font Awesome 5 Free';
-			}
-			margin-top: 50px;
-			div{
-				// display:inline-block;
-				color: #5b718e;
-			    letter-spacing: 0.1em;
-			    text-decoration: none;
-			    -webkit-transition: all 0.5s;
-			    font-family: $work;
-			    font-weight: 400;
-			    text-transform: uppercase;
+			.block_wrap{
+				display: flex!important;
+				flex-direction: column;
+			    justify-content: center;
+			    align-items: center;
 			    text-align: center;
+			    box-shadow: $shadow;
+			    height: 230px;
+			    width: 90%!important;
+    			margin: 5%;
+    			background: #FFF;
+    			span{
+    				width: 90px;
+    				height: 90px;
+    				background: #F6F6F6;
+    				-webkit-border-radius: 50%;
+    				        border-radius: 50%;
+    				display: flex;
+				    justify-content: center;
+				    align-items: center;
+    			}
+			    i{
+			    	color: #001738;
+			    	font-size: 2em;
+			    }
+			    p{
+			    	width: 80%;
+			    }
 			}
-		}
-		.tab-text {
-		    height: 200px;
-		}
-		.tab-links li {
-			// margin:0px 5px;
-			float:left;
-			list-style:none;
-		}
-		.tab-links a {
-			padding:9px 15px;
-			display:inline-block;
-			background:transparent;
-			font-weight:600;
-			color:#4c4c4c;
-			transition:all linear 0.3s;
-			color: #dde2e8;
-			text-transform: uppercase;
-		    font-family: "work", sans-serif;
-		    font-size: 0.8em;
-		    @include respond-to($phone){
-		    	font-size: 0.7em;
-		    	padding: 0;
-		    }
-		}
-		.tab-links a:hover {
-			text-decoration:underline;
-			color: #dde2e8;
-		}
-		li.active a, li.active a:hover {
-			background:transparent;
-			border-right: 0.14em solid #bdc3c7;
-    		border-left: 0.14em solid #bdc3c7;
-    		border-top: 3px solid #19b5bc;
-    		margin-bottom: -2px;
-    		background: #5b718e;
-		}
-		/*----- Content of Tabs -----*/
-		.tab-content {
-			padding:15px;
-			box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
-			background:transparent;
-			border: 0.14em solid #bdc3c7;
-			color: #dde2e8;
-			transition: all 0.35s;
-		    text-transform: uppercase;
-		    font-family: "work", sans-serif;
-		    font-size: 0.87em;
-		    line-height: 17px;
-		    // height: 100%;
-		}
-		.tab {
-			display:none;
-		}
-		.tab.active {
-			display:block;
-		}
+		} 
+	}
